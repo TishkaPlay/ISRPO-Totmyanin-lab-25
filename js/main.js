@@ -355,3 +355,103 @@ async function processOrder(orderId) {
 processOrder(101);
 setTimeout(() => processOrder(102), 2500);
 */
+
+/*
+console.log("Fetch API");
+
+async function getUsers() {
+     try{
+         const response = await fetch("https://jsonplaceholder.typicode.com/users");
+         if (!response.ok) {
+             throw new Error(`HTTP ошибка статус${response.status}`);
+         }
+         const users = await response.json();
+
+         console.log("первые три пользователя");
+         users.slice(0, 3).forEach((user) => {
+             console.log(`- ${user.name} (${user.email})`);
+         });
+     } catch(error) {
+         console.log("Ошибка при загрузке ", error.message);
+     }
+}
+
+getUsers();
+*/
+
+/*
+async function getUserById(id) {
+    try{
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+        const user = await response.json();
+
+        console.log(`Пользователь #${id}`);
+        console.log(`Имя ${user.name}`);
+        console.log(`Город ${user.address.city}`);
+        console.log(`Компании ${user.company.name}`);
+
+    } catch(error) {
+        console.log("Ошибка", error.message);
+    }
+}
+
+getUserById(1);
+*/
+
+/*
+async function createPost() {
+    try {
+ 		const newPost = {
+ 			title: 'Моя первая запись',
+ 			body: 'Это содержание моей первой записи в блоге',
+ 			userId: 1,
+ 		}
+ 		const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+ 			method: 'POST',
+ 			headers: {
+ 				'Content-Type': 'application/json',
+ 			},
+ 			body: JSON.stringify(newPost),
+ 		})
+
+ 		const createdPost = await response.json();
+ 		console.log('Создана новая запись:');
+ 		console.log(`ID: ${createdPost.id}`);
+ 		console.log(createdPost.title);
+ 	} catch (error) {
+ 		console.log('Ошибка при создании записи:', error.message);
+ 	}
+}
+
+createPost();
+*/
+
+/*
+async function testFetchAPI() {
+  console.log("=== Тест Fetch API ===");
+  try {
+
+    const resUsers = await fetch("https://jsonplaceholder.typicode.com/users?_limit=3");
+    const users = await resUsers.json();
+    console.log("Пользователи:", users.map(u => u.name).join(", "));
+
+    // GET: один пользователь
+    const resUser = await fetch("https://jsonplaceholder.typicode.com/users/1");
+    const user = await resUser.json();
+    console.log("User #1:", user.name, `(${user.email})`);
+
+    const resPost = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: "Лабораторная 25", body: "Тест fetch", userId: 1 })
+    });
+    const newPost = await resPost.json();
+    console.log("Создан пост ID:", newPost.id);
+  } catch (err) {
+    console.error("Ошибка сети:", err);
+  }
+}
+
+testFetchAPI();
+*/
+
