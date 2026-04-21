@@ -236,3 +236,122 @@ checkInventory("PlayStation 6", false)
     .then(successMsg => console.log(successMsg))
     .catch(errMsg => console.log(errMsg));
 */
+
+/*
+console.log("Async/Await");
+
+async function greet() {
+    return "Привет!";
+}
+
+greet().then((message) => console.log(message));
+
+function getWeather() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ temp: 22, condition: "Солнечно" });
+        }, 1000);
+    });
+}
+
+async function showWeather() {
+    console.log("Загрузка погоды...");
+    const weather = await getWeather();
+    console.log(`Температура: ${weather.temp}℃, ${weather.condition}`);
+}
+
+showWeather();
+
+async function fetchData(shouleFail) {
+    return new Promise((reslove, reject) => {
+ 		setTimeout(() => {
+ 			if (shouleFail) {
+ 				reject('Ошибка при загрузке данных');
+			} else {
+ 				reslove({ data: 'Важные данные' });
+ 			}
+		}, 800);
+    });
+}
+
+async function getData() {
+ 	try {
+ 		const resuit = await fetchData(false);
+ 		console.log('Успешно', resuit.data);
+
+ 		const failedResuit = await fetchData(true);
+ 		console.log('это не выполняетмя');
+ 	} catch (error) {
+ 		console.log('Поймана ошибка', error);
+    }
+}
+
+getData()
+*/
+
+/*
+async function cookDinner() {
+    console.log('Начинаем готовить...');
+
+    const pasta = await delay(1000).then(() => 'Паста готова');
+    console.log(pasta);
+
+    const sauce = await delay(500).then(() => 'Соус готов');
+    console.log(sauce);
+
+    const salad = await delay(700).then(() => 'Салат готов');
+    console.log(salad);
+
+    return 'Ужин готов';
+}
+
+function delay(ms) {
+return new Promise(reslove => {
+		setTimeout(() => {
+			reslove(`Прошло ${ms} миллисекунд`);
+		}, ms);
+ 	});
+}
+
+cookDinner().then(resuit => console.log(resuit));
+
+async function cookDinnerFast() {
+    console.log('Готовим все одновременно...');
+
+    const [pasta, sauce, salad] = await Promise.all([
+ 		delay(1000).then(() => 'Паста готова'),
+		delay(500).then(() => 'Соус готов'),
+ 		delay(700).then(() => 'Салат готов'),
+ 	]);
+
+ 	console.log(pasta, sauce, salad);
+ 	return 'Ужин готов быстрее';
+}
+
+cookDinnerFast().then(resuit => console.log(resuit));
+*/
+
+/*
+async function processOrder(orderId) {
+  console.log(`📦 Начинаем обработку заказа #${orderId}...`);
+  try {
+    await new Promise((resolve, reject) => {
+      setTimeout(() => Math.random() > 0.3 ? resolve() : reject("Товар временно отсутствует"), 1000);
+    });
+    console.log("Товар проверен и доступен.");
+
+    // 2. Расчёт стоимости (задержка 0.8с)
+    const price = await new Promise(res => setTimeout(() => res(2450), 800));
+    console.log(`Рассчитана стоимость: ${price} ₽`);
+
+
+    const status = await new Promise(res => setTimeout(() => res("Подтверждён"), 500));
+    console.log(`Статус: ${status}`);
+  } catch (err) {
+    console.error(`Ошибка заказа #${orderId}: ${err}`);
+  }
+}
+
+processOrder(101);
+setTimeout(() => processOrder(102), 2500);
+*/
